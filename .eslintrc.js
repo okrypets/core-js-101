@@ -16,5 +16,21 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "radix": ["error", "as-needed"],
+    "use-isnan": ["error", {"enforceForSwitchCase": true}],
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": false,
+        "object": true
+      },
+      "AssignmentExpression": {
+        "array": true,
+        "object": true
+      }
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+    "no-eval": ["error", {"allowIndirect": true}]
   },
 };

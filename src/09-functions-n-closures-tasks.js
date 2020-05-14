@@ -23,8 +23,11 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.asin(x))
  *
  */
-function getComposition(/* f, g */) {
-  throw new Error('Not implemented');
+function getComposition(f, g) {
+  return function comp(value) {
+    return f(g(value));
+  };
+  // throw new Error('Not implemented');
 }
 
 
@@ -44,8 +47,11 @@ function getComposition(/* f, g */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  return function pow(value) {
+    return value ** exponent;
+  };
+  // throw new Error('Not implemented');
 }
 
 
@@ -81,8 +87,18 @@ function getPolynom() {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(/* func */) {
-  throw new Error('Not implemented');
+function memoize(func) {
+  const cache = {};
+  return (...args) => {
+    const n = args[0];
+    if (n in cache) {
+      return cache[n];
+    }
+    const result = func(n);
+    cache[n] = result;
+    return result;
+  };
+  // throw new Error('Not implemented');
 }
 
 
@@ -148,6 +164,16 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(/* fn, ...args1 */) {
+  // return function partial() {
+  //   if (args1.length >= fn.length) {
+  //     return fn.apply(this, args1);
+  //   }
+  //   if (args1.length < fn.length){
+  //     return function (...args2) {
+  //       return partial.apply(this, args1.concat(args2));
+  //     }
+  //   }
+  // };
   throw new Error('Not implemented');
 }
 
