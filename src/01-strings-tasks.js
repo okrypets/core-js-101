@@ -242,23 +242,23 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(str) {
-  const arr = str.split('').map((it, index) => {
-    const itCode = it.charCodeAt(0);
-    if ((itCode > 64 && itCode < 91) || (itCode > 96 && itCode < 123)) {
-      let newIt = '';
-      if (itCode < 78) {
-        newIt = String.fromCharCode(itCode + 13);
-      }
+function encodeToRot13(/* str */) {
+  // const arr = str.split('').map((it, index) => {
+  //   const itCode = it.charCodeAt(0);
+  //   if ((itCode > 64 && itCode < 91) || (itCode > 96 && itCode < 123)) {
+  //     let newIt = '';
+  //     if (itCode < 78) {
+  //       newIt = String.fromCharCode(itCode + 13);
+  //     }
 
-      if (index < 12) {
-        newIt = String.fromCharCode(itCode + 13);
-      }
-      return newIt;
-    } return it;
-  });
-  return arr.join('');
-  // throw new Error('Not implemented');
+  //     if (index < 12) {
+  //       newIt = String.fromCharCode(itCode + 13);
+  //     }
+  //     return newIt;
+  //   } return it;
+  // });
+  // return arr.join('');
+  throw new Error('Not implemented');
 }
 
 /**

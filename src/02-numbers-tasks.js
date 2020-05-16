@@ -53,11 +53,11 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
-  const sum = value1 + value2;
-  const ever = Number.isFinite(sum / 2) ? Infinity : (sum / 2);
-  return ever;
-  // throw new Error('Not implemented');
+function getAverage(/* value1, value2 */) {
+  // const sum = value1 + value2;
+  // const ever = Number.isFinite(sum / 2) ? Infinity : (sum / 2);
+  // return ever;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -118,12 +118,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const pro = x1 * x2 + y1 * y2;
-  const skolX = Math.hypot(x1, x2) * Math.hypot(y1, y2);
-  const result = (pro / skolX) * (Math.PI / 180);
-  return result;
-  // throw new Error('Not implemented');
+function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
+  // const pro = x1 * x2 + y1 * y2;
+  // const skolX = Math.hypot(x1, x2) * Math.hypot(y1, y2);
+  // const result = (pro / skolX) * (Math.PI / 180);
+  // return result;
+  throw new Error('Not implemented');
 }
 
 /**
@@ -198,7 +198,9 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return num.toFixed(pow);
+  if (pow === 0) return num;
+  const newNum = +(num / (10 ** pow)).toFixed(0) * (10 ** pow);
+  return newNum;
   // throw new Error('Not implemented');
 }
 
@@ -220,12 +222,11 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n < 2) return false;
-  const limit = Math.sqrt(n);
-  for (let i = 2; i <= limit; i += i) {
-    if (n % i === 0) {
-      return false;
-    }
+  if (n <= 0 || n === 1) return false;
+  if (n === 2) return true;
+  if (n % 2 === 0) return false;
+  for (let i = 3; i <= Math.sqrt(n); i += 2) {
+    if (n % i === 0) return false;
   }
   return true;
   // throw new Error('Not implemented');
@@ -247,7 +248,8 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return typeof Number(value) === 'number' ? value : def;
+  const isNumber = typeof +value === 'number' && !Number.isNaN(+value);
+  return isNumber ? Number(value) : def;
   // throw new Error('Not implemented');
 }
 

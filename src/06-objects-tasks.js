@@ -121,57 +121,57 @@ function fromJSON(proto, json) {
  */
 
 const cssSelectorBuilder = {
-  element(value) {
-    this.value = value;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  element(/* value */) {
+    // this.value = value;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  id(value) {
-    this.value = `#${value}`;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  id(/* value */) {
+    // this.value = `#${value}`;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  class(value) {
-    this.value = `.${value}`;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  class(/* value */) {
+    // this.value = `.${value}`;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  attr(value) {
-    this.value = `[${value}]`;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  attr(/* value */) {
+    // this.value = `[${value}]`;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  pseudoClass(value) {
-    this.value = `:${value}`;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  pseudoClass(/* value */) {
+    // this.value = `:${value}`;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  pseudoElement(value) {
-    this.value = `::${value}`;
-    this.stringify = function stringify() {
-      return JSON.stringify(this.value);
-    };
-    // throw new Error('Not implemented');
+  pseudoElement(/* value */) {
+    // this.value = `::${value}`;
+    // this.stringify = function stringify() {
+    //   return JSON.stringify(this.value);
+    // };
+    throw new Error('Not implemented');
   },
 
-  combine(selector1, combinator, selector2) {
-    return JSON.stringify(`${selector1} ${combinator} ${selector2}`);
-    // throw new Error('Not implemented');
+  combine(/* selector1, combinator, selector2 */) {
+    // return JSON.stringify(`${selector1} ${combinator} ${selector2}`);
+    throw new Error('Not implemented');
   },
 };
 
