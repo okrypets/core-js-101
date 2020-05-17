@@ -233,8 +233,12 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return arr.reduce((acc, it, index) => {
+    const str = String(it.join(','));
+    return index === arr.length - 1 ? `${acc}${str}` : `${acc}${str}\n`;
+  }, '');
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -376,8 +380,21 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const arrTr = [
+    { one: '1' },
+    { two: '2' },
+    { three: '3' },
+    { four: '4' },
+    { five: '5' },
+    { six: '6' },
+    { seven: '7' },
+    { eight: '8' },
+    { nine: '9' },
+    { zero: '0' },
+  ];
+  return arr.sort((a, b) => (arrTr.find((i) => i[a])[a] - arrTr.find((i) => i[b])[b]));
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -476,10 +493,20 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  // arr.sort((a, b) => (a.city > b.city ? 1 : -1) || (a.country > b.country ? 1 : -1));
-  // return arr;
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  arr.sort((a, b) => {
+    if (a.country > b.country) {
+      return 1;
+    }
+    if (a.country === b.country) {
+      if (a.city > b.city) {
+        return 1;
+      }
+    }
+    return -1;
+  });
+  return arr;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -582,11 +609,13 @@ function distinct(arr) {
  *   }
  */
 function group(/* array, keySelector, valueSelector */) {
-  // let myMap = new Map();
-  // let rez = array.reduce((acc, it) => {
-  //   acc.push()
-  // }, [])
-  // return myMap
+  // const myMap = new Map();
+  // const uniqueCountry = Array.from(new Set(array.map(keySelector)));
+  // uniqueCountry.reduce((acc, it) => {
+  //   const setValue = array.filter(() => keySelector === it).map(valueSelector);
+  //   return acc.set(it, setValue);
+  // }, myMap);
+  // return myMap;
   throw new Error('Not implemented');
 }
 

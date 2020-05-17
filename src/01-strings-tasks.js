@@ -242,23 +242,26 @@ function getRectangleString(width, height) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  // const arr = str.split('').map((it, index) => {
-  //   const itCode = it.charCodeAt(0);
-  //   if ((itCode > 64 && itCode < 91) || (itCode > 96 && itCode < 123)) {
-  //     let newIt = '';
-  //     if (itCode < 78) {
-  //       newIt = String.fromCharCode(itCode + 13);
-  //     }
-
-  //     if (index < 12) {
-  //       newIt = String.fromCharCode(itCode + 13);
-  //     }
-  //     return newIt;
-  //   } return it;
-  // });
-  // return arr.join('');
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const aCharCode = 'a'.charCodeAt(0);
+  const zCharCode = 'z'.charCodeAt(0);
+  const ACharCode = 'A'.charCodeAt(0);
+  const ZCharCode = 'Z'.charCodeAt(0);
+  const arr = str
+    .split('')
+    .map((it, index) => {
+      let charCode = str.charCodeAt(index);
+      if (charCode >= aCharCode && charCode <= zCharCode) {
+        charCode += 13;
+        if (charCode > zCharCode) charCode -= 26;
+      } else if (charCode >= ACharCode && charCode <= ZCharCode) {
+        charCode += 13;
+        if (charCode > ZCharCode) charCode -= 26;
+      }
+      return String.fromCharCode(charCode);
+    });
+  return arr.join('');
+  // throw new Error('Not implemented');
 }
 
 /**

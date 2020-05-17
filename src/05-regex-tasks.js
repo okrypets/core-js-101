@@ -56,9 +56,8 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  // const regexp = /^[spr](?!a|ea)\D+/;
-  // return regexp;
-  throw new Error('Not implemented');
+  return /p.{1}t/;
+  // throw new Error('Not implemented');
 }
 
 

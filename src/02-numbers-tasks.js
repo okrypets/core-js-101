@@ -53,11 +53,8 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  // const sum = value1 + value2;
-  // const ever = Number.isFinite(sum / 2) ? Infinity : (sum / 2);
-  // return ever;
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  return value1 / 2 + value2 / 2;
 }
 
 /**
@@ -118,12 +115,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  // const pro = x1 * x2 + y1 * y2;
-  // const skolX = Math.hypot(x1, x2) * Math.hypot(y1, y2);
-  // const result = (pro / skolX) * (Math.PI / 180);
-  // return result;
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const pro = (x1 * x2) + (y1 * y2);
+  const zn = (x, y) => Math.sqrt((x ** 2) + (y ** 2));
+  return Math.acos(pro / (zn(x1, y1) * zn(x2, y2)));
+  // throw new Error('Not implemented');
 }
 
 /**
