@@ -609,17 +609,6 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-  // const myMap = new Map();
-  // const uniqueCountry = Array.from(new Set(array.map(keySelector)));
-  // array.reduce((acc, it) => {
-  //   // const setValue = array.filter(keySelector(it) === it).map(valueSelector);
-  //   const values = []
-  //   if (!(keySelector(cur) in values)) {
-  //     values[keySelector(cur)] = [];
-  //   }
-  //   values[keySelector(cur)].push(valueSelector(cur));
-  //   return acc.set(it, values);
-  // }, myMap);
   const result = array.reduce((acc, cur) => {
     const newArr = acc;
     if (!(keySelector(cur) in newArr)) {
