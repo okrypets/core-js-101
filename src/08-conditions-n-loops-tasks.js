@@ -138,21 +138,27 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  // let rect1XStart = rect1.left;
-  // let rect1XFin = rect1.left + rect1.width;
-  // let rect1YStart = rect1.top;
-  // let rect1YFin = rect1.top + rect1.height;
+function doRectanglesOverlap(rect1, rect2) {
+  // const rect1XStart = rect1.left;
+  const rect1XFin = rect1.left + rect1.width;
+  // const rect1YStart = rect1.top;
+  const rect1YFin = rect1.top + rect1.height;
 
-  // let rect2XStart = rect2.left;
-  // let rect2XFin = rect2.left + rect2.width;
-  // let rect2YStart = rect2.top;
-  // let rect2YFin = rect2.top + rect2.height;
+  // const rect2XStart = rect2.left;
+  const rect2XFin = rect2.left + rect2.width;
+  // const rect2YStart = rect2.top;
+  const rect2YFin = rect2.top + rect2.height;
 
-  // if (
-  //   (rect1XStart <= rect2XStart && rect1XStart >= rect2XStart )
-  // )
-  throw new Error('Not implemented');
+  if (rect1.left > rect2XFin || rect2.left > rect1XFin) {
+    return false;
+  }
+
+  if (rect1.top > rect2YFin || rect2.top > rect1YFin) {
+    return false;
+  }
+
+  return true;
+  // throw new Error('Not implemented');
 }
 
 
@@ -182,8 +188,10 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const length = Math.sqrt(((point.x - circle.center.x) ** 2) + ((point.y - circle.center.y) ** 2));
+  return length < circle.radius;
+  // throw new Error('Not implemented');
 }
 
 
@@ -471,8 +479,21 @@ function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const result = [];
+  for (let i = 0; i < m1.length; i += 1) {
+    const stek = [];
+    for (let m2Col = 0; m2Col < m2[0].length; m2Col += 1) {
+      let sum = 0;
+      for (let j = 0; j < m1[i].length; j += 1) {
+        sum += m1[i][j] * m2[j][m2Col];
+      }
+      stek.push(sum);
+    }
+    result.push(stek);
+  }
+  return result;
+  // throw new Error('Not implemented');
 }
 
 
